@@ -1,0 +1,10 @@
+{% extends 'myProject/base.html' %}
+
+{% block content %}
+    <form method="POST" class="border border-dark p-4 mt-4 searchfield d-flex flex-column bg-light">{% csrf_token %}
+        <label for="code">Inserire il codice identificativo del titolo di studio</label>
+        <input type="text" id="code" name="code" required>
+        <div class="line my-2"></div>
+        <button type="submit" class="btn bg-primary text-light align-self-end">Cerca</button>
+    </form>
+{% endblock %}

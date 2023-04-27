@@ -1,0 +1,18 @@
+{% extends 'myProject/base.html' %}
+
+{% block content %}
+    <article class="detail py-4 mt-4 border border-dark bg-light">
+        <h2 class="text-center mb-4">{{diploma.tipologia}}</h2>
+        <div class="border-top border-dark px-3">
+            <h3 class="my-3">Codice identificativo: {{diploma.codiceId}}</h3>
+            <p class="my-3">Nome: {{diploma.nome}}</p>
+            <p class="my-3">Cognome: {{diploma.cognome}}</p>
+            <p class="my-3">Data di nascita: {{diploma.dataNascita}}</p>
+            <p class="my-3">Luogo di nascita: {{diploma.luogoNascita}}</p>
+            <p class="my-3">Data di conseguimento: {{diploma.dataConseguimento}}</p>
+            <p class="my-3">Votazione: {{diploma.votazione}}</p>
+            <p class="my-3">hash: {{diploma.hash}}</p>
+            <p class="my-3">txId: <a href= "https://goerli.etherscan.io/tx/{{diploma.txId}}" target="_blank">{{diploma.txId}}</a></p>
+        </div>
+    </article>
+{% endblock %} 

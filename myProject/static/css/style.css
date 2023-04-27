@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #005B46;
+}
+a{
+    text-decoration: none;
+}
+
+.detail, 
+form{
+    width: 70%;
+    margin: auto;
+}
+.line{
+    height: 0;
+}
+.searchfield{
+    width: 30%;
+}
+.buttons-container{
+    width: 200px;
+}

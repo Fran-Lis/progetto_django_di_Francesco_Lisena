@@ -1,0 +1,35 @@
+{% extends 'myProject/base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <form method="POST" class="detail border border-dark p-4 mt-4 d-flex flex-column bg-light">{% csrf_token %}
+            <label for="{{form.tipologia.id_for_label}}">tipologia titolo di studio</label>
+            {{form.tipologia}}
+            <div class="line my-2"></div>
+            <label for="{{form.nome.id_for_label}}">nome</label>
+            {{form.nome}}
+            <div class="line my-2"></div>
+            <label for="{{form.cognome.id_for_label}}">cognome</label>
+            {{form.cognome}}
+            <div class="line my-2"></div>
+            <label for="{{form.dataNascita.id_for_label}}">data di nascita</label>
+            {{form.dataNascita}}
+            <div class="line my-2"></div>
+            <label for="{{form.luogoNascita.id_for_label}}">luogo di nascita</label>
+            {{form.luogoNascita}}
+            <div class="line my-2"></div>
+            <label for="{{form.dataConseguimento.id_for_label}}">data di conseguimento</label>
+            {{form.dataConseguimento}}
+            <div class="line my-2"></div>
+            <label for="{{form.votazione.id_for_label}}">votazione</label>
+            {{form.votazione}}
+            <div class="line my-2"></div>
+            <button type="submit" class="btn bg-success text-light align-self-end">Registra</button>
+        </form>
+    {% else %}
+        <div class="searchfield mt-4 p-4 mx-auto text-center bg-warning">
+            <h3 class="bg-danger text-light">ATTENZIONE</h3>
+            <p class="text-danger">Utente non autenticato, per favore tornare indietro e autenticarsi</p>
+        </div>
+    {% endif %}
+{% endblock %}

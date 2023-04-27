@@ -1,0 +1,13 @@
+{% extends 'myProject/base.html' %}
+
+{% block content %}
+    <form class="border border-dark p-4 mt-4 searchfield d-flex flex-column bg-light" method="POST">{% csrf_token %}
+        <label for="" class="me-1">Username</label>
+        <input type="text" id="username" name="username" required>
+        <div class="line my-2"></div>
+        <label for="" class="me-1">Password</label>
+        <input type="password" id="psw" name="psw" required>
+        <div class="line my-2"></div>
+        <button type="submit" class="btn bg-primary text-light align-self-end">Accedi</button>
+    </form>
+{% endblock %}
