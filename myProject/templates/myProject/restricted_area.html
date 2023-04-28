@@ -2,6 +2,9 @@
 
 {% block content %}
     {% if user.is_authenticated %}
+        <div class="d-flex justify-content-end">
+            <a class="btn bg-primary text-light mt-2 me-1" href="{% url 'signup' %}">Aggiungi nuovo amministratore</a>
+        </div>
         <form method="POST" class="detail border border-dark p-4 mt-4 d-flex flex-column bg-light">{% csrf_token %}
             <label for="{{form.tipologia.id_for_label}}">tipologia titolo di studio</label>
             {{form.tipologia}}
@@ -12,14 +15,14 @@
             <label for="{{form.cognome.id_for_label}}">cognome</label>
             {{form.cognome}}
             <div class="line my-2"></div>
-            <label for="{{form.dataNascita.id_for_label}}">data di nascita</label>
-            {{form.dataNascita}}
+            <label for="">data di nascita</label>
+            <input type="date" id="dataNascita" name="dataNascita" required>
             <div class="line my-2"></div>
             <label for="{{form.luogoNascita.id_for_label}}">luogo di nascita</label>
             {{form.luogoNascita}}
             <div class="line my-2"></div>
-            <label for="{{form.dataConseguimento.id_for_label}}">data di conseguimento</label>
-            {{form.dataConseguimento}}
+            <label for="">data di conseguimento</label>
+            <input type="date" id="dataConseguimento" name="dataConseguimento">
             <div class="line my-2"></div>
             <label for="{{form.votazione.id_for_label}}">votazione</label>
             {{form.votazione}}

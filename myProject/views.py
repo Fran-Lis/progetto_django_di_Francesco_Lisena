@@ -34,6 +34,21 @@ def diploma_detail(request, pk):
     diploma = Diploma.objects.get(pk=pk)
     return render(request, 'myProject/diploma_detail.html', {'diploma': diploma})
 
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        psw1 = request.POST['psw1']
+        psw2 = request.POST['psw2']
+        if psw1 == psw2:
+            new_user = User.objects.create_user(username, email, psw1)
+            new_user.save()
+            messages.success(request, 'Utente aggiunto con successo')
+        else:
+            messages.error(request, 'Password non corrispondenti')
+
+    return render(request, 'myProject/signup.html')
+
 def signin(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -62,6 +77,8 @@ def restricted_area(request):
     ip_address = get_client_ip(request)
     if request.method == 'POST':
         form = DiplomaForm(request.POST)
+        form.dataNascita = request.POST['dataNascita']
+        form.dataConseguimento = request.POST['dataConseguimento']
         if form.is_valid():
             diploma = form.save()
             diploma.registra()
